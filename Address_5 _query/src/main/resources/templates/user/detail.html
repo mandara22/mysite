@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>ユーザー情報詳細</title>
+    <meta charset="utf-8" />
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+  	<script th:src="@{/js/ok.js}"></script>
+  	 <link th:href="@{/css/detail.css}" rel="stylesheet"></link>
+  	 
+  </head>
+  <body>
+  <div class = "header">
+  <h1>ユーザー情報詳細</h1>
+  </div>
+  <table th:object="${userRequest}" class=table>
+    <tr>
+      <th class="cell_title">名前</th>
+      <th class="cell_required"></th>
+      <td th:text="*{username}"></td>
+    </tr>
+    <tr>
+      <th class="cell_title">住所</th>
+      <th class="cell_required"></th>
+      <td th:text="*{address}"></td>
+    </tr>
+    <tr>
+      <th class="cell_title">電話番号</th>
+      <th class="cell_required"></th>
+      <td th:text="*{phone}"></td>
+    </tr>
+  </table>
+  <div class="btn_area_center">
+    <a th:href="@{/user/{id}/edit(id=*{id})}" class="btn btn-primary">編集</a>
+    <a th:href="@{/user/{id}/delete(id=*{id})}" class="btn btn-primary" onclick = "return conf1()">削除</a>
+    <a href="/user/list" class="btn btn-primary">topへ戻る</a>
+  </div>
+  </body>
+</html>
+ 
